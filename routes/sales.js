@@ -31,4 +31,12 @@ router.get("/:id", async (req, res) => {
   res.json(ventas.find((venta) => venta._id == req.params.id));
 });
 
+//purchase method
+router.get("/purchase/:identificador", async (req, res) => {
+  const ventas = await controller.getSales();
+  res.json(
+    ventas.filter((user) => user.purchaseMethod == req.params.identificador)
+  );
+});
+
 module.exports = router;
