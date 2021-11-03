@@ -40,9 +40,9 @@ Si ya terminaste o son las 10:00 asegurate de seguir los siguientes pasos para l
 
 
 ## Listado de endpoint
-- /api/sales
-
-
-
-
+- /api/sales?method=[Online]
+- /api/sales/:id
+- /api/sales/customer/satisfaction
+- /api/sales/customer/:email
+- /api/sales//locations/totals
 
