@@ -4,4 +4,6 @@ async function getSales(){
     return sales.getAllSales();
 }
 
+
+
 module.exports = {getSales};
