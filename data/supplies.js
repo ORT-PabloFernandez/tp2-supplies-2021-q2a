@@ -1,4 +1,5 @@
 const conn = require('./conn');
+var ObjectId = require('mongodb').ObjectId;
 const DATABASE = 'sample_supplies';
 const SALES = 'sales';
 
@@ -13,4 +14,13 @@ async function getAllSales(){
     return supplies;
 }
 
-module.exports = {getAllSales};
+async function getSaleById(id){
+    const connectiondb = await conn.getConnection();
+    const supplies = await connectiondb
+                        .db(DATABASE)
+                        .collection(SALES)
+                        .findOne({ '_id': ObjectId(id) });    
+    return supplies;
+}
+
+module.exports = {getAllSales, getSaleById};

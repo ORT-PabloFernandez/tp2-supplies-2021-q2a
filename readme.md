@@ -41,8 +41,12 @@ Si ya terminaste o son las 10:00 asegurate de seguir los siguientes pasos para l
 
 ## Listado de endpoint
 - /api/sales
+- /api/sales/customer/insatisfechos
+- /api/sales/customer/:email
+- /api/sales/:id
 
 
-
+- /api/sales
+    tiene filtro por query params para el purchaseMethod
 
 
