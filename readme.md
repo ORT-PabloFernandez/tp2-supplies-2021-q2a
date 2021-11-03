@@ -41,7 +41,11 @@ Si ya terminaste o son las 10:00 asegurate de seguir los siguientes pasos para l
 
 ## Listado de endpoint
 - /api/sales
-
+- /api/sales/sale/:id (endpoint que nos devuelve una venta particular por _id)
+- /api/sales/method (Utiliza el query param method para indicar el metodo de las compras que se quieren obtener)
+- /api/sales/custommer (Utiliza el query param email para indicar el usuario del que se quiere obtener las compras)
+- /api/users/insatisfied (encontrar los clientes insatisfechos (con menor a 3 de satisfacción)
+- /api/sales/importe (obtener el importe total de la venta por localizacion)
 
 
 
