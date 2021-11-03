@@ -19,8 +19,7 @@ router.get("/email", async (req, res) => {
 //clientes insatisfechos
 router.get("/clientesInsatisfechos", async (req, res) => {
   const ventas = await controller.getSales();
-
-  res.json(controller.ventas.filter((user) => user.customer.satisfaction < 3));
+  res.json(ventas.filter((user) => user.customer.satisfaction < 3));
 });
 
 router.get("/:id", async (req, res) => {
