@@ -7,31 +7,29 @@ router.get("/", async (req, res) => {
   res.json(await controller.getSales());
 });
 
-//queryString buscar por id , uso localhost:3000/api/sales/ventas?id=5bd761dcae323e45a93cd01b , pero no se por que no devuelve
+//consulta con queryString ,buscar por email
+router.get("/email", async (req, res) => {
+  const ventas = await controller.getSales();
 
-router.get("/", async (req, res) => {
+  res.json(
+    ventas.find((user) => user.customer.email == req.query.identificador)
+  );
+});
+
+//clientes insatisfechos
+router.get("/clientesInsatisfechos", async (req, res) => {
+  const ventas = await controller.getSales();
+
+  res.json(controller.ventas.filter((user) => user.customer.satisfaction < 3));
+});
+
+router.get("/:id", async (req, res) => {
   console.log("check");
   console.log(req.query.id);
 
   const ventas = await controller.getSales();
 
-  res.json(ventas.find((venta) => venta._id === req.query.id));
-});
-
-//consulta con queryString ,buscar por email
-router.get("/email", async (req, res) => {
-  res.json(
-    await controller
-      .getSales()
-      .filter((user) => user.email === req.query.identificador)
-  );
-});
-
-//clientes insatisfechos
-router.get("/clientesInsatisfechos", (req, res) => {
-  res.json(
-    controller.getSales().filter((user) => user.customer.satisfaction < 3)
-  );
+  res.json(ventas.find((venta) => venta._id == req.params.id));
 });
 
 module.exports = router;
