@@ -41,8 +41,15 @@ Si ya terminaste o son las 10:00 asegurate de seguir los siguientes pasos para l
 
 ## Listado de endpoint
 - /api/sales
+- /api/sales/"_id"
+- /api/sales/method/"purchaseMethod"
 
+En el punto 4 intente de 2 maneras distintas mostrar todas las que tienen menos de 3 de satifaccion pero no pude hacerlas andar
+- /api/sales/lowCal
+- /api/sales/lowSat
 
+Para compensar hice pasando como parametro que nivel de satisfaccion quiero mostrar
+- /api/sales/sat/"satisfaction" (number)
 
 
 
