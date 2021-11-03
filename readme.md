@@ -49,4 +49,5 @@ Si ya terminaste o son las 10:00 asegurate de seguir los siguientes pasos para l
 - /api/sales
     tiene filtro por query params para el purchaseMethod
 
+https://www.getpostman.com/collections/4572066ec341a0efd04f
 
