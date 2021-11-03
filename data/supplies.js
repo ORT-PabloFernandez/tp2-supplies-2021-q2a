@@ -51,7 +51,7 @@ async function getSaleById(id) {
     const unsatisfiedUsers = await connectiondb
                     .db(DATABASE)
                     .collection(SALES)
-                    .find({"customer.satisfaction": {$lte: 3}})
+                    .find({"customer.satisfaction": { $lte: 3 }})
                     .toArray();
     return unsatisfiedUsers;
   }
