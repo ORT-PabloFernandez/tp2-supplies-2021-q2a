@@ -37,6 +37,13 @@ Si ya terminaste o son las 10:00 asegurate de seguir los siguientes pasos para l
 3. Realizar un pull request a mi repositorio
 
 
+## Notas:
+
+-Realizo un nuevo pull request solamente para agregar el punto extra que habias definido en el examen ya que viendolo hoy un poco mas detenidamente no me funcionaba porque en la segunda iteracion que utilizo para recorrer el array de items de la venta, le incremento el iterador al for de arriba, es decir en vez de hacer j++, realizaba i++.
+
+Entiendo que claramente no hace diferencia a la evaluacion pero me sirve para posibles correcciones.
+
+Gracias.
 
 
 ## Listado de endpoint

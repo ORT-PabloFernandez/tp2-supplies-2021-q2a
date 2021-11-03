@@ -55,14 +55,17 @@ async function getInsatisfiedCustomers(){
 
 async function getTotalAmountByLocation(location){
     const sales = await getAllSales();
-    const locationSales = sales.filter( sale => sale.storeLocation == location)
+    const locationSales = sales.filter( sale => sale.storeLocation == location);
     let amount = 0;
+
     for(let i = 0; i < locationSales.length; i++){
-        for(let j = 0; j < locationSales[i].items.length; i++){
-            amount = amount + locationSales[i].items[j].price.$numberDecimal;
+        for(let j = 0; j < locationSales[i].items.length; j++){
+            let price = locationSales[i].items[j].price;
+            let cantidad = locationSales[i].items[j].quantity;
+            amount += price * cantidad;
         }
     }
-    return amount
+    return amount;
 }
 
 module.exports = {getAllSales, getSaleById, getAllSalesByPurchaseMethod, getSaleByCustomerEmail, getInsatisfiedCustomers, getTotalAmountByLocation};
