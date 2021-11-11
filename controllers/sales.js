@@ -4,4 +4,21 @@ async function getSales(){
     return sales.getAllSales();
 }
 
-module.exports = {getSales};
+async function getSale(id){    
+    return sales.getSale(id);
+}
+
+async function getSalesByMethod(metodoCompra) {
+    return sales.getSalesByMethod(metodoCompra);
+}
+
+async function getSalesByEmail(email) {
+    return sales.getSalesByEmail(email);
+}
+
+async function getSalesClientesInsatisfechos() {
+    return sales.getSalesClientesInsatisfechos();
+}
+
+
+module.exports = {getSales,getSale,getSalesByMethod,getSalesByEmail,getSalesClientesInsatisfechos};
