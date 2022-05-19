@@ -1,7 +1,9 @@
-const sales = require('../data/supplies');
+const sales = require("../data/supplies");
 
-async function getSales(){    
-    return sales.getAllSales();
+async function getSales() {
+  return sales.getAllSales();
 }
 
-module.exports = {getSales};
+module.exports = { getSales };
+
+//prueba
