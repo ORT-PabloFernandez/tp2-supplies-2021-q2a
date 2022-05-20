@@ -40,7 +40,12 @@ Si ya terminaste o son las 10:00 asegurate de seguir los siguientes pasos para l
 
 
 ## Listado de endpoint
-- /api/sales
+- http://localhost:3000/api/sales/
+- http://localhost:3000/api/sales/5bd761dcae323e45a93cd070
+- http://localhost:3000/api/sales/purchaseMethod/Phone
+- http://localhost:3000/api/sales/clientePorMail/ihuwih@gabec.au
+- http://localhost:3000/api/sales/clientesInsatifechos/3
+- http://localhost:3000/api/sales/ventasPorGeo/Denver
 
 
 
