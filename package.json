@@ -14,6 +14,19 @@
     "express": "~4.16.1",
     "http-errors": "~1.6.3",
     "mongodb": "^4.1.3",
-    "morgan": "~1.9.1"
-  }
+    "morgan": "~1.9.1",
+    "nodemon": "^2.0.16"
+  },
+  "description": "Es tu primer día en [tecnoshare.com](http://tecnoshare.com) luego de un intenso entrenamiento de 10 semanas por fin tenes la oportunidad de mostrar lo que aprendiste, y tu potencial como desarrollador backend en nodejs con express y mongodb.",
+  "main": "app.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/fornojp/ModeloParcial.git"
+  },
+  "author": "fornoJuanPablo",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/fornojp/ModeloParcial/issues"
+  },
+  "homepage": "https://github.com/fornojp/ModeloParcial#readme"
 }
