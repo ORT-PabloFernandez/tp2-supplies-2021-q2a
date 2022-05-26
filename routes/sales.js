@@ -29,4 +29,10 @@ router.get("/unsatisfiedCustomers/3", async (req, res) => {
   res.json(customers);
 });
 
+router.get("/storeLocation/:storeLocation", async (req, res) => {
+  console.log(req.params.storeLocation);
+  const sales = await data.salesXLocation(req.params.storeLocation);
+  res.json(sales);
+});
+
 module.exports = router;

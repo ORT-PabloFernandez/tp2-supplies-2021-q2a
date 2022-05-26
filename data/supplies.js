@@ -55,10 +55,33 @@ async function getUnstatifiedCustomers() {
   return unsatisfiedCustomers;
 }
 
+async function salesXLocation(storeLocation) {
+  const connectiondb = await conn.getConnection();
+  let total = 0;
+  const salesXLocation = await connectiondb
+    .db(DATABASE)
+    .collection(SALES)
+    .find({ storeLocation: storeLocation })
+    .forEach((sale) => {
+      sale.items.map((item) => {
+        total += item.quantity * item.price;
+      });
+    });
+  console.log(total);
+  //.map((sale) => ({
+  //  items: sale.items.map((s) => ({
+  //    price: s.price,
+  //  })),
+  //}))
+
+  return { storeLocation: storeLocation, totalSales: total.toFixed(2) };
+}
+
 module.exports = {
   getAllSales,
   getSalesByid,
   getSalesByPm,
   getSalesByEmail,
   getUnstatifiedCustomers,
+  salesXLocation,
 };
