@@ -34,7 +34,7 @@ async function getPurchaseMethod(method) {
     const salesXmethod = await connectiondb
         .db(DATABASE)
         .collection(SALES)
-        .find({ purchaseMethod: method })
+        .find({ "purchaseMethod": method })
         .toArray();
     return salesXmethod;
 }
@@ -64,26 +64,64 @@ async function getClientesInsatifechos(tope) {
 
 // total ventas por geo
 async function getVentasPorGeo(geo) {
-    let sumaTotal = 0;
+   
     const connectiondb = await conn.getConnection();
     const ventasPorGeo = await connectiondb
         .db(DATABASE)
         .collection(SALES)
         .find({ storeLocation: geo })
-        .forEach(sale => {
-            sale.items.forEach(item => {
-                sumaTotal = sumaTotal + parseInt(item.price)
-                console.log(sumaTotal)
-            })
+        .toArray();
+    
+    let sumaTotal = 0;
+    for (let i = 0; i < ventasPorGeo.length; i++ ) {
+        const venta = ventasPorGeo[i]
+        venta.items.forEach(item => {
+            sumaTotal = sumaTotal + parseFloat(item.price)
+            console.log(parseFloat(item.price))
+            console.log(sumaTotal)
         })
-    //.toArray();
+    }    
+       
 
+    return {
+        'Nombre de la Localidad': geo,
+        'Total ventas': sumaTotal,       
+    }
+}
+
+// total ventas por geoV2
+async function getVentasPorGeoV2(geo) {    
+    const ventas = await getAllSales();
+    const listaVentasPorLocalidad = ventas.filter((ventas) => ventas.storeLocation == geo);
+
+    let sumaTotal = 0;
+    for (let i = 0; i < listaVentasPorLocalidad.length; i++) {
+        const venta = listaVentasPorLocalidad[i];
+        venta.items.forEach(item => {
+            sumaTotal = sumaTotal + parseFloat(item.price)
+            console.log(parseFloat(item.price))
+            console.log(sumaTotal)
+        })
+    }
     return {
         'Nombre de la Localidad': geo,
         'Total ventas': sumaTotal
     }
 }
 
+// listado por geo
+async function getListadoPorGeo(geo) {
+    const connectiondb = await conn.getConnection();
+    const listadoPorGeo = await connectiondb
+        .db(DATABASE)
+        .collection(SALES)
+        .find({ storeLocation: geo })
+        .toArray();
+
+    return listadoPorGeo;
+}
 
 
-module.exports = { getAllSales, getOneSale, getPurchaseMethod, getClientePorMail, getClientesInsatifechos, getVentasPorGeo };
+
+module.exports = { getAllSales, getOneSale, getPurchaseMethod, getClientePorMail, 
+    getClientesInsatifechos, getVentasPorGeo, getListadoPorGeo, getVentasPorGeoV2 };

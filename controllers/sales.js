@@ -24,7 +24,15 @@ async function getVentasPorGeo(geo){
     return sales.getVentasPorGeo(geo);
 }
 
+async function getListadoPorGeo(geo){    
+    return sales.getListadoPorGeo(geo);
+}
+
+async function getVentasPorGeoV2(geo){    
+    return sales.getVentasPorGeoV2(geo);
+}
 
 
 
-module.exports = {getSales, getOneSale, getPurchaseMethod, getClientePorMail , getClientesInsatifechos, getVentasPorGeo};
+module.exports = {getSales, getOneSale, getPurchaseMethod, getClientePorMail , 
+    getClientesInsatifechos, getVentasPorGeo, getListadoPorGeo, getVentasPorGeoV2};

@@ -37,6 +37,18 @@ router.get('/ventasPorGeo/:geo', async (req, res) => {
     res.json(await controller.getVentasPorGeo(req.params.geo));
 })
 
+// get listado por Geo
+router.get('/listadoPorGeo/:geo', async (req, res) => {
+    console.log("check");
+    res.json(await controller.getListadoPorGeo(req.params.geo));
+})
+
+// get total de ventas por geolizacion v2
+router.get('/ventasPorGeoV2/:geo', async (req, res) => {
+    console.log("check");
+    res.json(await controller.getVentasPorGeoV2(req.params.geo));
+})
+
 
 
 
